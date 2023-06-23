@@ -20,55 +20,40 @@ const images = [
   },
 ];
 
-// const galleryContainer = document.querySelector('.gallery');
-
-const makeGalleryItem = ({url, alt}) => {
-  const itemEl = document.createElement('li');
- 
-  const imageEl = document.createElement('img');
-  imageEl.src = url;
-  imageEl.alt = alt;
-
-itemEl.append(imageEl);
-  return itemEl;
-  
-};
-
-console.log(makeGalleryItem(images[0]));
-
 const galleryContainer = document.querySelector('.gallery');
 
-const makeGalleryItemRow = images
-.map(makeGalleryItem)
-.join('');
 
-console.log(makeGalleryItemRow);
-
-galleryContainer.insertAdjacentHTML('beforeend', makeGalleryItemRow);
-
-// galleryContainer.insertAdjacentHTML("afterbegin", makeGalleryItem(images));
-
-// const makeGalleryItemRow = images.map(makeGalleryItem);
-// console.log(makeGalleryItemRow);
-
-// galleryContainer.append(...elements);
-
-// galleryContainer.insertAdjacentHTML("afterbegin", elements);
-
+const makeGalleryItem = images 
+  .map((image) => `<li> <img src= ${image.url} alt=${image.alt}> </li>`)
+  .join('');
+   
+galleryContainer.insertAdjacentHTML('beforeend', makeGalleryItem);
 console.log(galleryContainer);
 
-// galleryContainer.append(...galleryItem)
 
-// const elements = ingredients.map(option => {
+
+
+
+// Це моє рішення цієї задачі, працює!!!
+
+// const galleryContainer = document.querySelector('.gallery');
+// const makeGalleryItem1 = ({url, alt}) => {
 //   const itemEl = document.createElement('li');
-//   itemEl.textContent = option;
-//   itemEl.classList.add('item');
+ 
+//   const imageEl = document.createElement('img');
+//   imageEl.src = url;
+//   imageEl.alt = alt;
+//   imageEl.width = 350;
 
-//     return itemEl;
-    
-// });
+// itemEl.append(imageEl);
+//   return itemEl;
+  
+// };
 
+// console.log(makeGalleryItem1(images[0]));
 
+// const elements = images.map(makeGalleryItem1);
 
-// console.log(elements);
-// list.append(...elements);
+// galleryContainer.append(...elements);
+// console.log(galleryContainer);
+

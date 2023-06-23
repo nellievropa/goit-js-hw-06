@@ -7,4 +7,16 @@ const navEl = document.querySelector('#categories');
 console.log('Number of categories:', navEl.children.length);
 
 // вибираємо всіх дітей батька 
-console.log(navEl.querySelectorAll('.item'));
+
+const itemCategory = document.querySelectorAll('.item');
+
+itemCategory.forEach(function (item) {
+    console.log(`Category: ${item.firstElementChild.textContent}, 
+    Elements: ${item.lastElementChild.children.length}`)
+});
+
+
+
+
+
+
