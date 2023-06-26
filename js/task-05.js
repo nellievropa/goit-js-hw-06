@@ -16,8 +16,8 @@ inputName.addEventListener('input', onInputChange);
 
 
 function onInputChange(event)  {
-    if (event.currentTarget.value === 0) {
-        spanName.textContent = 'Anonimus';
+    if (event.currentTarget.value.lenght === 0) {
+        spanName.textContent = '${anonimus}';
     }
     spanName.textContent = event.currentTarget.value;
   };
