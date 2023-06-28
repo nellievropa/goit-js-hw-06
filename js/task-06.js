@@ -4,18 +4,24 @@
 // Для додавання стилів використовуй CSS-класи valid і invalid, які ми вже додали у вихідні файли завдання.
 
 const inputContent = document.querySelector('#validation-input');
-const maxLength = 6;
-// const maxLength =document.querySelector('input[data-length="6"]');
+// console.log(inputContent);
+// console.log(inputContent.getAttribute("data-length"));
+const maxLength = inputContent.getAttribute("data-length");
+
+console.log(maxLength);
 inputContent.addEventListener('blur', onInputBlur);
 
 function onInputBlur(event) {
-
-    // console.log(event.currentTarget);
+    //  console.log(event.currentTarget.value);
     const content = event.currentTarget;
+    console.log(content.value.length);
 
  if(content.value.length === maxLength) {
-    content.classList.add('valid');
+   // inputContent.classList.add('valid');
+   inputContent.style.borderColor = '#4caf50';
  }else{
-content.classList.add('invalid');
- }
-}
+ 
+   // inputContent.classList.add('invalid');
+   inputContent.style.borderColor = '#f44336';
+ };
+};
