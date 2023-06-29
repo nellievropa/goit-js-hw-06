@@ -5,23 +5,24 @@
 
 const inputContent = document.querySelector('#validation-input');
 // console.log(inputContent);
-// console.log(inputContent.getAttribute("data-length"));
-const maxLength = inputContent.getAttribute("data-length");
 
+// const maxLength = document.querySelector('input[data-length="6"]');
+const maxLength = inputContent.getAttribute('data-length');
 console.log(maxLength);
 inputContent.addEventListener('blur', onInputBlur);
 
 function onInputBlur(event) {
-    //  console.log(event.currentTarget.value);
-    const content = event.currentTarget;
-    console.log(content.value.length);
+     console.log(event.currentTarget.value.length);
+    // const content = event.currentTarget;
 
- if(content.value.length === maxLength) {
-   // inputContent.classList.add('valid');
-   inputContent.style.borderColor = '#4caf50';
+ if(event.currentTarget.value.length === `${maxLength}`) {
+  // console.log(content.value.length);
+
+  inputContent.classList.add('valid');
+  inputContent.classList.remove('invalid');
+
  }else{
- 
-   // inputContent.classList.add('invalid');
-   inputContent.style.borderColor = '#f44336';
- };
-};
+  inputContent.classList.add('invalid');
+ inputContent.classList.remove('valid');
+ }
+}
