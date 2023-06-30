@@ -6,8 +6,10 @@
 const inputContent = document.querySelector('#validation-input');
 // console.log(inputContent);
 
-// const maxLength = document.querySelector('input[data-length="6"]');
-const maxLength = inputContent.getAttribute('data-length');
+
+const maxLengthRow = inputContent.getAttribute('data-length');
+console.log(maxLengthRow);
+const maxLength = Number(maxLengthRow);
 console.log(maxLength);
 inputContent.addEventListener('blur', onInputBlur);
 
@@ -15,7 +17,7 @@ function onInputBlur(event) {
      console.log(event.currentTarget.value.length);
     // const content = event.currentTarget;
 
- if(event.currentTarget.value.length === `${maxLength}`) {
+ if(event.currentTarget.value.length === maxLength) {
   // console.log(content.value.length);
 
   inputContent.classList.add('valid');
