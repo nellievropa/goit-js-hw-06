@@ -28,23 +28,37 @@ console.log(controlSet);
 console.log(createBtn);
 console.log(destroyBtn);
 
-inputNumbers.addEventListener('click', createBoxes);
+inputNumbers.addEventListener('click', getCurrentAmount);
 createBtn.addEventListener('click',  createBoxes);
 destroyBtn.addEventListener('click', destroyBoxes);
 
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
+}
+
+function getCurrentAmount(event) {
+  return `${event.currentTarget.value}`;
+  // console.log(event.currentTarget.value);
+}
+
 function createBoxes(amount) {
 
-  const amounCurrent = amount.currentTarget.value;
-  console.log(amounCurrent);
+  const currentAmount = `${event.currentTarget.value}`;
+  console.log(currentAmount);
  
   for (let i = inputMinNumber; i < inputMaxNumber; i += step) {
+    const randomColor = `#${Math.floor(Math.random() * 16777215)
+      .toString(16)
+      .padStart(6, 0)}`;
     const div =  document.createElement('div'); 
     // const boxes = 0;
-    div.classList.add("box");
+    div.classList.add("boxes");
    
-    box.style.width = `${30}`+ 'px';
-    box.style.height = `${30}` + 'px';
-    box.style.backgroundColor = "teal";
+    boxes.style.width = `${30}`+ 'px';
+    boxes.style.height = `${30}` + 'px';
+    boxes.style.backgroundColor = `${randomColor}`;
     console.log(div);
   
   }
@@ -56,8 +70,3 @@ div.boxes.remove();
 }
 
 
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215)
-    .toString(16)
-    .padStart(6, 0)}`;
-}
