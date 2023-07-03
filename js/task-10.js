@@ -84,6 +84,10 @@ let currentAmount = 0;
   }
 
 
+  // function destroyBoxes() {
+  //   div.boxes.remove();
+  //   }
+
 // addListenerBtn.addEventListener('click', () => {
 //     console.log('Вішаю слухача події на цільову кнопку');
 
@@ -96,8 +100,5 @@ let currentAmount = 0;
 
 
 
-// function destroyBoxes() {
-// div.boxes.remove();
-// }
 
 
