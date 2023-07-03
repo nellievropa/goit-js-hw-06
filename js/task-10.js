@@ -14,10 +14,10 @@
 // Створи функцію destroyBoxes(), яка очищає вміст div#boxes, у такий спосіб видаляючи всі створені елементи.
 
 const controlSet = document.querySelector('#controls')
-const inputNumbers = document.querySelector("input")
-const inputMinNumber = inputNumbers.getAttribute("min");
-const inputMaxNumber = inputNumbers.getAttribute("max");
-const step = inputNumbers.getAttribute("step");
+const input = document.querySelector("input")
+const inputMinNumber = Number(input.getAttribute("min"));
+const inputMaxNumber = Number(input.getAttribute("max"));
+let step = Number(input.getAttribute("step"));
 console.log(inputMinNumber);
 console.log(inputMaxNumber);
 console.log(step);
@@ -28,9 +28,9 @@ console.log(controlSet);
 console.log(createBtn);
 console.log(destroyBtn);
 
-inputNumbers.addEventListener('click', getCurrentAmount);
-createBtn.addEventListener('click',  createBoxes);
-destroyBtn.addEventListener('click', destroyBoxes);
+// inputNumbers.addEventListener('click', getCurrentAmount);
+// createBtn.addEventListener('click',  createBoxes);
+// destroyBtn.addEventListener('click', destroyBoxes);
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
@@ -39,34 +39,65 @@ function getRandomHexColor() {
 }
 
 function getCurrentAmount(event) {
-  return `${event.currentTarget.value}`;
-  // console.log(event.currentTarget.value);
+  // return `${event.currentTarget.value}`;
+  console.log(event.currentTarget.value);
 }
+  
+input.addEventListener('click', createBoxes);
 
-function createBoxes(amount) {
+  function createBoxes(amount) {
+let currentAmount = 0;
+    // const amount = `${event.currentTarget.value}`;
+    // console.log(amount);
+    currentAmount = Number(amount.currentTarget.value);
+    console.log(currentAmount);
 
-  const currentAmount = `${event.currentTarget.value}`;
-  console.log(currentAmount);
- 
-  for (let i = inputMinNumber; i < inputMaxNumber; i += step) {
     const randomColor = `#${Math.floor(Math.random() * 16777215)
       .toString(16)
       .padStart(6, 0)}`;
-    const div =  document.createElement('div'); 
-    // const boxes = 0;
-    div.classList.add("boxes");
+      let width = 30;
+      let height = 30;
+      const box =  document.createElement('div'); 
+    let boxesAmount = document.createElement('ul');
+    
+    box.classList.add("boxes");
    
-    boxes.style.width = `${30}`+ 'px';
-    boxes.style.height = `${30}` + 'px';
+    boxes.style.width = `${width}`+ 'px';
+    boxes.style.height = `${height}` + 'px';
     boxes.style.backgroundColor = `${randomColor}`;
-    console.log(div);
-  
+    console.log(box);
+   
+    for (let i = 2; i < currentAmount; i += step) {
+
+    box[i] =  document.createElement('div'); 
+      
+      box[i].classList.add("box");
+     
+      box.style.width = width + 10 + 'px';
+      box.style.height = height + 10 + 'px';
+      box.style.backgroundColor = `${randomColor}`;
+     
+      return boxesAmount.append(...box[i]);
+    
+    }
+  console.log(boxesAmount);
   }
 
-}
 
-function destroyBoxes() {
-div.boxes.remove();
-}
+// addListenerBtn.addEventListener('click', () => {
+//     console.log('Вішаю слухача події на цільову кнопку');
+
+//     targetBtn.addEventListener('click', () => {
+//         console.log('Click по цільовій кнопці');
+//     });
+// });
+
+
+
+
+
+// function destroyBoxes() {
+// div.boxes.remove();
+// }
 
 
