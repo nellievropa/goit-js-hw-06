@@ -15,6 +15,7 @@
 
 const controlSet = document.querySelector('#controls')
 const input = document.querySelector("input")
+const allBoxes = document.querySelector('#boxes')
 const inputMinNumber = Number(input.getAttribute("min"));
 const inputMaxNumber = Number(input.getAttribute("max"));
 let step = Number(input.getAttribute("step"));
@@ -31,6 +32,7 @@ console.log(destroyBtn);
 // inputNumbers.addEventListener('click', getCurrentAmount);
 // createBtn.addEventListener('click',  createBoxes);
 // destroyBtn.addEventListener('click', destroyBoxes);
+createBtn.addEventListener('click', getCurrentAmount);
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
@@ -39,50 +41,47 @@ function getRandomHexColor() {
 }
 
 function getCurrentAmount(event) {
+  const currentAmount = `${event.currentTarget.value}`;
+  console.log(currentAmount);
+  // const  boxesAmount = `${event.currentTarget.value}`;
   // return `${event.currentTarget.value}`;
-  console.log(event.currentTarget.value);
-}
-  
-input.addEventListener('click', createBoxes);
-
   function createBoxes(amount) {
-let currentAmount = 0;
-    // const amount = `${event.currentTarget.value}`;
+    const boxes = [];
+
+    const amount = `${event.currentTarget.value}`;
     // console.log(amount);
-    currentAmount = Number(amount.currentTarget.value);
+    
     console.log(currentAmount);
 
     const randomColor = `#${Math.floor(Math.random() * 16777215)
       .toString(16)
       .padStart(6, 0)}`;
-      let width = 30;
-      let height = 30;
-      const box =  document.createElement('div'); 
-    let boxesAmount = document.createElement('ul');
     
-    box.classList.add("boxes");
+      let initialSize = 30;
    
-    boxes.style.width = `${width}`+ 'px';
-    boxes.style.height = `${height}` + 'px';
-    boxes.style.backgroundColor = `${randomColor}`;
-    console.log(box);
-   
-    for (let i = 2; i < currentAmount; i += step) {
-
-    box[i] =  document.createElement('div'); 
-      
-      box[i].classList.add("box");
+    for (let i = 1; i < currentAmount; i += step) {
      
-      box.style.width = width + 10 + 'px';
-      box.style.height = height + 10 + 'px';
+      const box =  document.createElement('div'); 
+      box.classList.add("box");
+     
+      box.style.width = `${initialSize}` + 'px';
+      box.style.height =`${initialSize}` + 'px';
       box.style.backgroundColor = `${randomColor}`;
-     
-      return boxesAmount.append(...box[i]);
+      // console.log(box);
+      boxes.push(box);
+
+      initialSize += 10;
     
     }
-  console.log(boxesAmount);
+    allBoxes.append(...boxes);
   }
 
+}
+  
+
+
+
+// console.log()
 
   // function destroyBoxes() {
   //   div.boxes.remove();
