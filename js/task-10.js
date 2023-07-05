@@ -28,6 +28,9 @@ console.log(controlSet);
 console.log(createBtn);
 console.log(destroyBtn);
 
+const allBoxes = document.querySelector('#boxes');
+
+
 inputNumbers.addEventListener('click', getCurrentAmount);
 createBtn.addEventListener('click',  createBoxes);
 destroyBtn.addEventListener('click', destroyBoxes);
