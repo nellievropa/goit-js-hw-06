@@ -20,15 +20,16 @@ const images = [
   },
 ];
 
-// const galleryContainer = document.querySelector('.gallery');
+const galleryContainer = document.querySelector('.gallery');
 
 
-// const makeGalleryItem = images 
-//   .map((image) => `<li> <img src= ${image.url} alt= ${image.alt}> </li>`)
-//   .join('');
+const makeGalleryItem = images 
+  .map((image) => `<li> <img src= ${image.url} 
+  alt= '${image.alt}'> </li >`)
+  .join('');
    
-// galleryContainer.insertAdjacentHTML('beforeend', makeGalleryItem);
-// console.log(galleryContainer);
+galleryContainer.insertAdjacentHTML('beforeend', makeGalleryItem);
+console.log(galleryContainer);
 
 
 
@@ -36,24 +37,24 @@ const images = [
 
 // Це моє рішення цієї задачі, працює!!!
 
-const galleryContainer = document.querySelector('.gallery');
-const makeGalleryItem1 = ({url, alt}) => {
-  const itemEl = document.createElement('li');
+// const galleryContainer = document.querySelector('.gallery');
+// const makeGalleryItem1 = ({url, alt}) => {
+//   const itemEl = document.createElement('li');
  
-  const imageEl = document.createElement('img');
-  imageEl.src = url;
-  imageEl.alt = alt;
-  imageEl.width = 350;
+//   const imageEl = document.createElement('img');
+//   imageEl.src = url;
+//   imageEl.alt = alt;
+//   imageEl.width = 350;
 
-itemEl.append(imageEl);
-  return itemEl;
+// itemEl.append(imageEl);
+//   return itemEl;
   
-};
+// };
 
-console.log(makeGalleryItem1(images[0]));
+// console.log(makeGalleryItem1(images[0]));
 
-const elements = images.map(makeGalleryItem1);
+// const elements = images.map(makeGalleryItem1);
 
-galleryContainer.append(...elements);
-console.log(galleryContainer);
+// galleryContainer.append(...elements);
+// console.log(galleryContainer);
 

@@ -13,7 +13,7 @@
 
 // Створи функцію destroyBoxes(), яка очищає вміст div#boxes, у такий спосіб видаляючи всі створені елементи.
 
-// const controlSet = document.querySelector('#controls');
+const controlSet = document.querySelector('#controls');
 
 // const inputMinNumber = Number(input.getAttribute("min"));
 // const inputMaxNumber = Number(input.getAttribute("max"));
@@ -59,9 +59,13 @@ function createBoxes(currentAmount) {
     
       let initialSize = 30;
    
-    for (let i = 1; i < currentAmount; i += step) {
+    for (let i = 0; i < currentAmount; i += step) {
      
-      const box =  document.createElement('div'); 
+      const box = document.createElement('div'); 
+      const randomColor = `#${Math.floor(Math.random() * 16777215)
+        .toString(16)
+        .padStart(6, 0)}`;
+      
       box.classList.add("box");
      
       box.style.width = `${initialSize}` + 'px';
@@ -76,8 +80,9 @@ function createBoxes(currentAmount) {
     allBoxes.append(...boxes);
   }
 
-  function destroyBoxes() {
-    allBoxes.remove(boxes);
+  function destroyBoxes({ controlSet, currentAmount }) {
+  allBoxes.remove(controlSet. currentAmount);
+  
     }
 
 // addListenerBtn.addEventListener('click', () => {
