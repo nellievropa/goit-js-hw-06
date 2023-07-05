@@ -26,6 +26,7 @@ const controlSet = document.querySelector('#controls');
 // console.log(destroyBtn);
 
 const input = document.querySelector("input");
+console.log(input.value)
 let step = Number(input.getAttribute("step"));
 const allBoxes = document.querySelector('#boxes');
 
@@ -80,8 +81,9 @@ function createBoxes(currentAmount) {
     allBoxes.append(...boxes);
   }
 
-  function destroyBoxes({ controlSet, currentAmount }) {
-  allBoxes.remove(controlSet. currentAmount);
+  function destroyBoxes({ boxes, input}) {
+    allBoxes.remove(boxes);
+    input.textContent = "";
   
     }
 
