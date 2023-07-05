@@ -13,35 +13,29 @@
 
 // Створи функцію destroyBoxes(), яка очищає вміст div#boxes, у такий спосіб видаляючи всі створені елементи.
 
-const controlSet = document.querySelector('#controls')
-const input = document.querySelector("input")
-const allBoxes = document.querySelector('#boxes')
-const inputMinNumber = Number(input.getAttribute("min"));
-const inputMaxNumber = Number(input.getAttribute("max"));
+// const controlSet = document.querySelector('#controls');
+
+// const inputMinNumber = Number(input.getAttribute("min"));
+// const inputMaxNumber = Number(input.getAttribute("max"));
+
+// console.log(input.value);
+// console.log(inputMaxNumber);
+// console.log(step);
+// console.log(controlSet);
+// console.log(createBtn);
+// console.log(destroyBtn);
+
+const input = document.querySelector("input");
 let step = Number(input.getAttribute("step"));
-console.log(inputMinNumber);
-console.log(inputMaxNumber);
-console.log(step);
+const allBoxes = document.querySelector('#boxes');
 
 const createBtn = document.querySelector('button[data-create]');
 const destroyBtn = document.querySelector('button[data-destroy]');
-console.log(controlSet);
-console.log(createBtn);
-console.log(destroyBtn);
 
-<<<<<<< HEAD
-const allBoxes = document.querySelector('#boxes');
+input.addEventListener('click', getCurrentAmount);
 
-
-inputNumbers.addEventListener('click', getCurrentAmount);
 createBtn.addEventListener('click',  createBoxes);
 destroyBtn.addEventListener('click', destroyBoxes);
-=======
-// inputNumbers.addEventListener('click', getCurrentAmount);
-// createBtn.addEventListener('click',  createBoxes);
-// destroyBtn.addEventListener('click', destroyBoxes);
-createBtn.addEventListener('click', getCurrentAmount);
->>>>>>> 90001800ba2e9a2c04a67ce5469914c880edb023
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
@@ -50,17 +44,14 @@ function getRandomHexColor() {
 }
 
 function getCurrentAmount(event) {
-  const currentAmount = `${event.currentTarget.value}`;
+  const currentAmount = Number(event.currentTarget.value);
   console.log(currentAmount);
-  // const  boxesAmount = `${event.currentTarget.value}`;
-  // return `${event.currentTarget.value}`;
-  function createBoxes(amount) {
-    const boxes = [];
+ 
+}
+ createBtn.addEventListener('click', () => {createBoxes(input.value)})
 
-    const amount = `${event.currentTarget.value}`;
-    // console.log(amount);
-    
-    console.log(currentAmount);
+function createBoxes(currentAmount) {
+    const boxes = [];
 
     const randomColor = `#${Math.floor(Math.random() * 16777215)
       .toString(16)
@@ -85,16 +76,9 @@ function getCurrentAmount(event) {
     allBoxes.append(...boxes);
   }
 
-}
-  
-
-
-
-// console.log()
-
-  // function destroyBoxes() {
-  //   div.boxes.remove();
-  //   }
+  function destroyBoxes() {
+    allBoxes.remove(boxes);
+    }
 
 // addListenerBtn.addEventListener('click', () => {
 //     console.log('Вішаю слухача події на цільову кнопку');

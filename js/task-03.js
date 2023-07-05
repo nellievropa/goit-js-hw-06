@@ -23,12 +23,12 @@ const images = [
 // const galleryContainer = document.querySelector('.gallery');
 
 
-const makeGalleryItem = images 
-  .map((image) => `<li> <img src= ${image.url} alt= ${image.alt}> </li>`)
-  .join('');
+// const makeGalleryItem = images 
+//   .map((image) => `<li> <img src= ${image.url} alt= ${image.alt}> </li>`)
+//   .join('');
    
-galleryContainer.insertAdjacentHTML('beforeend', makeGalleryItem);
-console.log(galleryContainer);
+// galleryContainer.insertAdjacentHTML('beforeend', makeGalleryItem);
+// console.log(galleryContainer);
 
 
 
