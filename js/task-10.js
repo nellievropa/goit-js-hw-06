@@ -53,12 +53,7 @@ function getCurrentAmount(event) {
 
 function createBoxes(currentAmount) {
     const boxes = [];
-
-    const randomColor = `#${Math.floor(Math.random() * 16777215)
-      .toString(16)
-      .padStart(6, 0)}`;
-    
-      let initialSize = 30;
+    let initialSize = 30;
    
     for (let i = 0; i < currentAmount; i += step) {
      
@@ -79,13 +74,19 @@ function createBoxes(currentAmount) {
     
     }
     allBoxes.append(...boxes);
+ 
   }
 
-  function destroyBoxes({ boxes, input}) {
-    allBoxes.remove(boxes);
-    input.textContent = "";
   
+  function destroyBoxes(event) {
+    // console.log()
+    allBoxes.innerHTML = "";
+    input.value = "";
+    // allBoxes.remove();
+    // createBoxes();
+   
     }
+
 
 // addListenerBtn.addEventListener('click', () => {
 //     console.log('Вішаю слухача події на цільову кнопку');
